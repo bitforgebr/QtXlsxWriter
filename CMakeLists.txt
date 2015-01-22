@@ -6,7 +6,7 @@ include_directories(${Qt5Gui_INCLUDE_DIRS} ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
 add_definitions(-DXLSX_NO_LIB)
 
-add_library(QtXlsx
+add_library(QtXlsx STATIC
     src/xlsx/xlsxformat.cpp
     src/xlsx/xlsxdatavalidation.cpp
     src/xlsx/xlsxabstractsheet.cpp

@@ -6,6 +6,10 @@
 #include <QXmlStreamWriter>
 #include <QDebug>
 
+#if !defined(QT_NO_DATASTREAM)
+#include <QtCore/QDataStream>
+#endif
+
 namespace QXlsx {
 
 

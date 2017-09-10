@@ -1,8 +1,6 @@
 project(QtXlsxWriter)
 
-find_package(Qt5 COMPONENTS Gui)
-
-include_directories(${Qt5Gui_INCLUDE_DIRS} ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+find_package(Qt5 COMPONENTS Core Gui)
 
 add_definitions(-DXLSX_NO_LIB)
 
@@ -39,3 +37,5 @@ add_library(QtXlsx STATIC
     src/xlsx/xlsxcellreference.cpp
     src/xlsx/xlsxzipwriter.cpp
 )
+
+target_link_libraries(QtXlsx Qt5::Core Qt5::Gui)

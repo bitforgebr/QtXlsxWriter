@@ -1,10 +1,10 @@
 project(QtXlsxWriter)
 
-find_package(Qt5 COMPONENTS Gui)
-
-include_directories(${Qt5Gui_INCLUDE_DIRS} ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+find_package(Qt5 COMPONENTS Core Gui)
 
 add_definitions(-DXLSX_NO_LIB)
+
+include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS} ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
 add_library(QtXlsx STATIC
     src/xlsx/xlsxformat.cpp

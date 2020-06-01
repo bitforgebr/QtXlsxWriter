@@ -303,8 +303,8 @@ bool Format::hasNumFmtData() const
     if (!d)
         return false;
 
-    if (hasProperty(FormatPrivate::P_NumFmt_Id)
-            || hasProperty(FormatPrivate::P_NumFmt_FormatCode)) {
+    if (hasProperty(FormatPrivate::P_NumFmt_Id,
+                    FormatPrivate::P_NumFmt_FormatCode)) {
         return true;
     }
     return false;
@@ -1126,8 +1126,8 @@ bool Format::hasProtectionData() const
     if (!d)
         return false;
 
-    if (hasProperty(FormatPrivate::P_Protection_Hidden
-            || FormatPrivate::P_Protection_Locked)) {
+    if (hasProperty(FormatPrivate::P_Protection_Hidden,
+                    FormatPrivate::P_Protection_Locked)) {
         return true;
     }
     return false;
@@ -1344,7 +1344,8 @@ void Format::clearProperty(int propertyId)
 /*!
  * \internal
  */
-bool Format::hasProperty(int propertyId) const
+template<typename T>
+bool Format::hasProperty(T propertyId) const
 {
     if (!d)
         return false;

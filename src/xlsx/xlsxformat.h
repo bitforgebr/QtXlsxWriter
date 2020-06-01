@@ -226,7 +226,15 @@ public:
     QVariant property(int propertyId, const QVariant &defaultValue=QVariant()) const;
     void setProperty(int propertyId, const QVariant &value, const QVariant &clearValue=QVariant(), bool detach=true);
     void clearProperty(int propertyId);
-    bool hasProperty(int propertyId) const;
+    
+    template<typename T>
+    bool hasProperty(T propertyId) const;
+    
+    template<typename T, typename... Targs>
+    bool hasProperty(T propertyId, Targs... Fargs) const
+    {
+        return hasProperty(propertyId) || hasProperty(Fargs...);
+    }    
 
     bool boolProperty(int propertyId, bool defaultValue=false) const;
     int intProperty(int propertyId, int defaultValue=0) const;

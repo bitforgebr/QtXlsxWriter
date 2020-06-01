@@ -39,3 +39,7 @@ add_library(QtXlsx STATIC
     src/xlsx/xlsxcellreference.cpp
     src/xlsx/xlsxzipwriter.cpp
 )
+
+set_property(TARGET QtXlsx PROPERTY AUTOMOC ON)
+
+target_link_libraries(QtXlsx Qt5::Core Qt5::Gui)
